@@ -421,6 +421,31 @@ class RoleWalk(role):
 
     def find_path(self, role, num, screen_surf):
         """npc玩家的移动,寻路"""
+        if self.last == True and self.py == 0 and self.px == 7: #根据特殊位置，进行传送
+            self.next_py = 9
+            self.next_px = 6
+            self.x = self.next_px*64+200
+            self.y = self.next_py*65
+            self.last = False
+        elif self.last == True and self.py == 9 and self.px == 6:
+            self.next_py = 0
+            self.next_px = 7
+            self.x = self.next_px * 64+200
+            self.y = self.next_py * 65
+            self.last = False
+        elif self.last == True and self.py == 3 and self.px == 1:
+            self.next_py = 7
+            self.next_px = 11
+            self.x = self.next_px * 64+200
+            self.y = self.next_py * 65
+            self.last = False
+        elif self.last == True and self.py == 7 and self.px == 11:
+            self.next_py = 3
+            self.next_px = 1
+            self.x = self.next_px * 64+200
+            self.y = self.next_py * 65
+            self.last = False
+
         s1, s2, s3, s4 = [0, 0], [0, 0], [0, 0], [0, 0] #包含两个元素，第一个表示距离，第二个代表该点状态
         #让初始化的地点可走
         if num == 1:
@@ -449,8 +474,12 @@ class RoleWalk(role):
                     s1[0] = 0
                     s1[1] = 4
                 elif self.map[self.py + 1][self.px - 1] == 2:
+                    x1 = self.px - 1
+                    s1[0] = 0
                     s1[1] = 2
                 elif self.map[self.py+1][self.px-1] == 3:
+                    x1 = self.px - 1
+                    s1[0] = 0
                     s1[1] = 3
             y1 = self.py
 
@@ -466,8 +495,12 @@ class RoleWalk(role):
                     s2[0] = 0
                     s2[1] = 4
                 elif self.map[self.py+1][self.px+1] == 2:
+                    x2 = self.px + 1
+                    s2[0] = 0
                     s2[1] = 2
                 elif self.map[self.py+1][self.px+1] == 3:
+                    x2 = self.px + 1
+                    s2[0] = 0
                     s2[1] = 3
             y2 = self.py
 
@@ -484,8 +517,12 @@ class RoleWalk(role):
                     s3[0] = 0
                     s3[1] = 4
                 elif self.map[self.py][self.px] == 2:
+                    y3 = self.py - 1
+                    s3[0] = 0
                     s3[1] = 2
                 elif self.map[self.py][self.px] == 3:
+                    y3 = self.py - 1
+                    s3[0] = 0
                     s3[1] = 3
 
             x4 = self.px    #所处位置的下面的格子，向下走
@@ -498,12 +535,15 @@ class RoleWalk(role):
                 s4[0] = 0
                 if self.map[self.py+2][self.px] == 4:
                     y4 = self.py + 1
-                    y4 = self.py + 1
                     s4[0] = 0
                     s4[1] = 4
                 elif self.map[self.py + 2][self.px] == 2:
+                    y4 = self.py + 1
+                    s4[0] = 0
                     s4[1] = 2
                 elif self.map[self.py+2][self.px] == 3:
+                    y4 = self.py + 1
+                    s4[0] = 0
                     s4[1] = 3
 
             if s1[0] == 0: #如果可走的话，判断该玩家于游戏玩家的距离

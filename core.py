@@ -165,9 +165,9 @@ class GameMap(Array2D):
 
         if chance == 1:
             #根据人物血量判断胜利与否
-            if r1.blood == 0:
+            if r1.blood <= 0:
                 return 3
-            elif r2.blood == 0 and r3.blood == 0 and r4.blood == 0:
+            elif r2.blood <= 0 and r3.blood <= 0 and r4.blood <= 0:
                 return 4
             else:
                 if r1.is_hurt == True:  #这个是玩家人物在被炸后，返回初始位置
@@ -203,9 +203,9 @@ class GameMap(Array2D):
                 return 2
 
         elif chance == 2:
-            if r2.blood == 0:
+            if r2.blood <= 0:
                 return 3
-            elif r3.blood == 0 and r4.blood == 0 and r5.blood == 0:
+            elif r3.blood <= 0 and r4.blood <= 0 and r5.blood <= 0:
                 return 4
             else:
                 if r2.is_hurt == True:
@@ -239,9 +239,9 @@ class GameMap(Array2D):
                 return 2
 
         elif chance == 3:
-            if r3.blood == 0:
+            if r3.blood <= 0:
                 return 3
-            elif r4.blood == 0 and r5.blood == 0 and r1.blood == 0:
+            elif r4.blood <= 0 and r5.blood <= 0 and r1.blood <= 0:
                 return 4
 
             else:
@@ -275,9 +275,9 @@ class GameMap(Array2D):
                 return 2
 
         elif chance == 4:
-            if r4.blood == 0:
+            if r4.blood <= 0:
                 return 3
-            elif r5.blood == 0 and r1.blood == 0 and r2.blood == 0:
+            elif r5.blood <= 0 and r1.blood <= 0 and r2.blood <= 0:
                 return 4
 
             else:
@@ -310,9 +310,9 @@ class GameMap(Array2D):
                 return 2
 
         elif chance == 5:
-            if r5.blood == 0:
+            if r5.blood <= 0:
                 return 3
-            elif r1.blood == 0 and r2.blood == 0 and r3.blood == 0:
+            elif r1.blood <= 0 and r2.blood <= 0 and r3.blood <= 0:
                 return 4
             else:
                 if r5.is_hurt == True:
