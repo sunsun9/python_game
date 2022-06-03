@@ -40,13 +40,13 @@ class Bomb:
             screen_surf.blit(self.bz_central, (self.x * 64 + 180, self.y * 65 + 5))
             #根据不同的坐标显示不同的爆炸
             if self.y < 12:
-                screen_surf.blit(self.bz_down, (self.x * 64 + 190, self.y * 65 + 90))
+                screen_surf.blit(self.bz_down, (self.x * 64 + 201, self.y * 65 + 90))
             if self.x > 0 or map[self.y+1][self.x-1] == 1 or map[self.y+1][self.x-1] == 3 or map[self.y+1][self.x-1] == 2:
-                screen_surf.blit(self.bz_left, (self.x * 64 + 100, self.y * 65 + 10))
+                screen_surf.blit(self.bz_left, (self.x * 64 + 120, self.y * 65 + 20))
             if self.x < 14:
-                screen_surf.blit(self.bz_right, (self.x * 64 + 250, self.y * 65 + 15))
+                screen_surf.blit(self.bz_right, (self.x * 64 + 260, self.y * 65 + 25))
             if self.y > 0 or map[self.y][self.x] == 1 or map[self.y][self.x] == 3 or map[self.y][self.x] == 2:
-                screen_surf.blit(self.bz_up, (self.x * 64 + 195, self.y * 65 - 80))
+                screen_surf.blit(self.bz_up, (self.x * 64 + 205, self.y * 65 - 60))
 
 
 
